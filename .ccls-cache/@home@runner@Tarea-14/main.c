@@ -37,21 +37,51 @@ void registerBook() {
   newBook.title[strcspn(newBook.title, "\n")] =
       '\0'; // Eliminar el '\n' al final
 
+  while (strlen(newBook.title) > 50) {
+    printf("Titulo invalido. Ingrese nuevamente: ");
+    fgets(newBook.title, sizeof(newBook.title), stdin);
+    newBook.title[strcspn(newBook.title, "\n")] = '\0';
+  }
+
   printf("Ingrese autor: ");
   fgets(newBook.author, sizeof(newBook.author), stdin);
   newBook.author[strcspn(newBook.author, "\n")] = '\0';
+
+  while (strlen(newBook.author) > 50) {
+    printf("Autor invalido. Ingrese nuevamente: ");
+    fgets(newBook.author, sizeof(newBook.author), stdin);
+    newBook.author[strcspn(newBook.author, "\n")] = '\0';
+  }
 
   printf("Ingrese genero: ");
   fgets(newBook.genre, sizeof(newBook.genre), stdin);
   newBook.genre[strcspn(newBook.genre, "\n")] = '\0';
 
+  while (strlen(newBook.genre) > 50) {
+    printf("Genero invalido. Ingrese nuevamente: ");
+    fgets(newBook.genre, sizeof(newBook.genre), stdin);
+    newBook.genre[strcspn(newBook.genre, "\n")] = '\0';
+  }
+
   printf("Ingrese ISBN: ");
   fgets(newBook.isbn, sizeof(newBook.isbn), stdin);
   newBook.isbn[strcspn(newBook.isbn, "\n")] = '\0';
 
+  while (strlen(newBook.isbn) > 50) {
+    printf("ISBN invalido. Ingrese nuevamente: ");
+    fgets(newBook.isbn, sizeof(newBook.isbn), stdin);
+    newBook.isbn[strcspn(newBook.isbn, "\n")] = '\0';
+  }
+
   printf("Ingrese ubicacion: ");
   fgets(newBook.location, sizeof(newBook.location), stdin);
   newBook.location[strcspn(newBook.location, "\n")] = '\0';
+
+  while (strlen(newBook.location) > 50) {
+    printf("Ubicacion invalida. Ingrese nuevamente: ");
+    fgets(newBook.location, sizeof(newBook.location), stdin);
+    newBook.location[strcspn(newBook.location, "\n")] = '\0';
+  }
 
   strcpy(newBook.status, "Disponible");
   newBook.num_reserves = 0;
